@@ -2,12 +2,12 @@ version: "3.9"
 
 services:
   postgres:
-    image: postgres:16
+    image: postgres:18
     container_name: postgres
     environment:
-      POSTGRES_DB: appdb
-      POSTGRES_USER: appuser
-      POSTGRES_PASSWORD: apppass
+      POSTGRES_DB: markethubdb
+      POSTGRES_USER: roots
+      POSTGRES_PASSWORD: roots
     ports:
       - "5432:5432"
     volumes:
@@ -21,9 +21,9 @@ services:
     depends_on:
       - postgres
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/appdb
-      SPRING_DATASOURCE_USERNAME: appuser
-      SPRING_DATASOURCE_PASSWORD: apppass
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/markethubdb
+      SPRING_DATASOURCE_USERNAME: roots
+      SPRING_DATASOURCE_PASSWORD: roots
 
   frontend:
     build: ./frontend
